@@ -1,4 +1,4 @@
-Objetivos
+
 O objetivo dessa sprint final foi de que cada aluno deveria criar novas
 funcionalidades para seu processador RISC-V e utilizá-las em uma aplicação
 prática. Tendo como objetivos específicos os seguintes:
@@ -35,8 +35,7 @@ potencial uso real, utilizando o processador RISC-V de ciclo único aprimorado. 
 aplicação escolhida consiste em um gerador de pulso PWM (Pulse Width
 Modulation) implementado por meio do ambiente de desenvolvimento Quartus,
 utilizando o RARs (RISC-V Assembly Language) e integrado a uma placa FPGA.
-Campina Grande
-2023
+
 O objetivo principal desta aplicação é controlar a duração do pulso PWM,
 influenciando diretamente uma animação dos LEDs presentes na placa FPGA. A
 manipulação da largura do pulso é realizada através das chaves SW[7:0] da placa
