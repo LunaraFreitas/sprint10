@@ -1,0 +1,10 @@
+module attsw (input wire DataIn, SW,
+	output reg [7:0] LEDR, DataOut
+)
+
+always*() begin
+	DataIn = SW[7:0];
+	LEDR[7:0] = DataOut;
+	end
+	
+endmodule

@@ -1,0 +1,42 @@
+module decoder_bin_to_hex_display (
+  input wire SW3, SW2, SW1, SW0,
+  output wire [6:0] SEG
+);
+
+  reg [3:0] HEX; // Armazena o valor hexadecimal correspondente
+  
+  always @(*)
+  begin
+    // Atribuição de bits individuais da entrada SW ao registrador HEX
+    HEX[0] = SW0; // Bit menos significativo
+    HEX[1] = SW1;
+    HEX[2] = SW2;
+    HEX[3] = SW3; // Bit mais significativo
+  end
+
+  reg [6:0] segment_table [15:0];
+
+  initial begin
+   //7 6 5 4 3 2 1 
+    segment_table[0] = 7'b000_0001;  // 0
+    segment_table[1] = 7'b100_1111;  // 1
+    segment_table[2] = 7'b001_0010;  // 2
+    segment_table[3] = 7'b000_0110;  // 3
+    segment_table[4] = 7'b100_1100;  // 4
+    segment_table[5] = 7'b010_0100;  // 5
+    segment_table[6] = 7'b010_0000;  // 6
+    segment_table[7] = 7'b000_1111;  // 7
+    segment_table[8] = 7'b000_0000;  // 8
+    segment_table[9] = 7'b000_0100;  // 9
+    segment_table[10] = 7'b000_1000; // A
+    segment_table[11] = 7'b110_0000; // B
+    segment_table[12] = 7'b011_0001; // C
+    segment_table[13] = 7'b100_0010; // D
+    segment_table[14] = 7'b011_0000; // E
+    segment_table[15] = 7'b011_1000; // F
+  end
+
+  assign SEG = segment_table[HEX]; // Atribuição do padrão de segmentos correspondente ao valor HEX à saída SEG
+
+
+endmodule

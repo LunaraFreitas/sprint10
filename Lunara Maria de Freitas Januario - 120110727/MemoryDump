@@ -1,0 +1,9 @@
+Address     Code        Basic                        Line Source
+
+0x00400000  0x0ab00093  addi x1,x0,0x000000ab        1    addi x1, x0, 0xAB
+0x00400004  0x00100523  sb x1,10(x0)                 2    sb x1, 0xA(x0)
+0x00400008  0x00a00103  lb x2,10(x0)                 3    lb x2, 0xA(x0)
+0x0040000c  0x002005a3  sb x2,11(x0)                 4    sb x2, 0xB(x0)
+0x00400010  0x00b00183  lb x3,11(x0)                 5    lb x3, 0xB(x0)
+0x00400014  0x00300623  sb x3,12(x0)                 6    sb x3, 0xC(x0)
+0x00400018  0x00c00203  lb x4,12(x0)                 7    lb x4, 0xC(x0)

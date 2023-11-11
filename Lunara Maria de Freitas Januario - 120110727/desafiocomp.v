@@ -1,0 +1,27 @@
+module clk_2(clk_50mhz, clk_1hz);
+   input clk_50mhz;
+   output reg clk_1hz;
+	reg rst;
+	reg[24:0] counter;
+	initial
+	rst=0;
+	always @(posedge clk_50mhz or negedge rst)
+	begin
+	if(!rst)
+		begin
+			rst=1;
+			counter=25'd0;
+			clk_1hz=1'b0;
+		end
+	else
+		if(counter==25'd2_083_332)
+			begin
+				counter=25'd0;
+				clk_1hz=~clk_1hz;
+			end
+		else
+			begin
+				counter=counter+1;
+			end
+		end
+endmodule

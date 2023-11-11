@@ -1,0 +1,17 @@
+module registerfile (
+    input wire clk, rst, we3,
+    input wire [2:0] wa3, ra1, ra2,
+    input wire [7:0] wd3, rd1, rd2
+);
+
+wire [7:0] decoder_out, load;
+
+decoder m1(wa3[2], wa3[1], wa3[0], decoder_out); //converte o binario inserido em seleção para as portas and trabalhar junto com o bit we3;
+
+assign load = we3 & decoder_out;  //load é a saida das portas and
+
+//teste ate aqui do codigo (caso funcione os leds devem acender de acordo com cada saida de and)
+//assign LEDR [7:0] = load;
+
+
+endmodule

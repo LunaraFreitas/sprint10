@@ -1,0 +1,6 @@
+module Register8b (
+    input wire clk, rst, En,
+    input reg [7:0] RegData, 
+	 output reg [7:0] DataOut
+);
+

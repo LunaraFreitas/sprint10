@@ -1,0 +1,17 @@
+module clk_1(clk_1hz, clk_50mhz);
+    input clk_50mhz;
+    output reg clk_1hz;
+    reg rst;
+	reg count;
+always @(posedge clk_50mhz or negedge rst)
+    if(!rst) begin
+		count   <= 25'd2499999;
+        clk_1hz <= 1'b0;
+    end else begin
+		count <= count + 25'h1ffffff;
+        if(!count) begin
+			count   <= 25'd2499999;
+			clk_1hz <= ~clk_1hz;
+        end
+    end
+endmodule

@@ -1,0 +1,27 @@
+module ControlUnit (
+	 input wire [6:0] OP,Funct7,
+	 input wire [2:0] Funct3,
+	 output reg [2:0] ULAControl,
+	 output ULASrc, RegWrite
+);
+
+	if(OP == 7'b0110011) begin
+	
+		if(Funct3 == 3'b000)begin
+			if(Funct7 == 7'b0000000) begin RegWrite <=1; ULASrc <= 0; ULAControl = 0;end
+			else
+			if(Funct7 == 7'b0100000) begin RegWrite <=1; ULASrc <= 0; ULAControl = 3'b001;end
+			else begin RegWrite <=1; ULASrc <= 1; ULAControl = 3'b000; end //Funct7 == 7'bxxxxxxx
+			end
+			
+		else if(Funct3 == 010) 
+			if(Funct7 == 7'b0000000) begin RegWrite <=1; ULASrc <= 0; ULAControl = 3'b101;end
+		
+		else if(Funct3 == 110) 
+			if(Funct7 == 7'b0000000) begin RegWrite <=1; ULASrc <= 0; ULAControl = 3'b011;end
+		
+		else if(Funct3 == 111) 
+			if(Funct7 == 7'b0000000) begin RegWrite <=1; ULASrc <= 0; ULAControl = 3'b010; end
+			
+	end
+endmodule

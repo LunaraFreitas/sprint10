@@ -1,0 +1,18 @@
+module contador_0_a_9(
+    input wire CLK,   // Sinal de clock
+    output wire [3:0] Q // Saída do contador (4 bits)
+);
+
+    reg [3:0] count = 4'b0000; // Registrador para armazenar o valor do contador
+    
+    always @(posedge CLK)
+    begin
+        if (count == 4'b1001) // Quando o contador atinge 9 (1001 em binário)
+            count <= 4'b0000; // Reiniciar o contador para 0
+        else
+            count <= count + 1; // Incrementar o contador
+    end
+
+    assign Q = count; // Atribuir o valor do contador à saída
+
+endmodule
